@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,34 +21,34 @@ interface Character {
 const characters: Character[] = [
   {
     id: 1,
-    name: "Volt",
-    description: "Ты заблудилась в лесу и встретила волков",
-    image: "/img/fdd35e8a-d42e-4dbd-9197-d400b787507b.jpg",
-    chats: "106.2k",
-    creator: "@AlnoodSss",
-    category: "Фэнтези"
+    name: "Aurora",
+    description: "Мистический ИИ-помощник из будущего с голографическим обликом",
+    image: "/img/bcfda77e-4536-4a8e-9c48-898c5144622f.jpg",
+    chats: "1.2M",
+    creator: "@UniverseAI",
+    category: "Sci-Fi"
   },
   {
     id: 2,
-    name: "Luna",
-    description: "Таинственная волшебница из далёких земель",
-    image: "/img/5bd48cde-6b03-455f-bf14-38ee1b71c6a9.jpg",
-    chats: "95.7k",
-    creator: "@MagicWorld",
-    category: "Фэнтези"
+    name: "Cybron",
+    description: "Дружелюбный робот-компаньон готовый помочь и поддержать",
+    image: "/img/e4ca0596-60e3-4f71-86ee-cf1c2e5d09aa.jpg",
+    chats: "890k",
+    creator: "@TechWorld",
+    category: "Роботы"
   },
   {
     id: 3,
-    name: "Алан",
-    description: "Твой муж устал на работе",
-    image: "/img/3719bdb5-ce27-4674-9dc2-c90289b1419f.jpg",
-    chats: "87.3k",
-    creator: "@LifeStory",
-    category: "Повседневность"
+    name: "Мерлин",
+    description: "Древний маг с безграничной мудростью и магическими знаниями",
+    image: "/img/75f0b2fd-c576-49b0-b613-fd81d2d26efb.jpg",
+    chats: "2.1M",
+    creator: "@MagicRealm",
+    category: "Фэнтези"
   }
 ]
 
-const categories = ["Для вас", "Рекомендуемое", "Сценарии", "Романтика", "Фэнтези", "Аниме"]
+const categories = ["Для вас", "Рекомендуемое", "Sci-Fi", "Роботы", "Фэнтези", "Помощники"]
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("Для вас")
@@ -251,9 +252,11 @@ const Index = () => {
               <Icon name="Users" size={20} />
               <span className="text-xs">Персонажи</span>
             </Button>
-            <Button variant="ghost" size="sm" className="flex flex-col gap-1">
-              <Icon name="Plus" size={20} />
-              <span className="text-xs">Создать</span>
+            <Button asChild variant="ghost" size="sm" className="flex flex-col gap-1">
+              <Link to="/create">
+                <Icon name="Plus" size={20} />
+                <span className="text-xs">Создать</span>
+              </Link>
             </Button>
             <Button variant="ghost" size="sm" className="flex flex-col gap-1">
               <Icon name="MessageCircle" size={20} />
